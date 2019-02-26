@@ -1,5 +1,26 @@
 
 $(document).ready(function(){
+
+
+      // Audio Setup
+      // ===========
+
+      // Create an audio element with JavaScript
+     // var audioElement = document.createElement("audio");
+
+      // Set it's source to the location
+      // of our Captain Planet theme song file.
+      //audioElement.setAttribute("src", "Assets/captainplanet24.mp3");
+
+      // Theme Button
+      //$(".theme-button").on("click", function() {
+    //    audioElement.play();
+     // });
+
+      // Pause Button
+     // $(".pause-button").on("click", function() {
+      //  audioElement.pause();
+     // });    
 // Global variables
 var baseAttack = 0; // original attack strength
 var player; // holds the player Object
