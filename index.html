@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fortnite RPG Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div id="msg" class="fixed-top text-center alert alert-warning">Choose wisely</div>
+
+
+<div class="text-center mt-5">
+        <div class="card-deck">
+                <div class="card bg-primary">
+                  <div class="card-body text-center">
+                  <p class="card-text"><h1>Fortnite RPG Game</h1></p>
+                   </div>
+                </div>
+        </div>
+</div>
+
+        <div id="game" class="card-deck mt-3">
+        </div>
+
+        <div class="row text-center mt-3">
+                <div class="col-5">
+                    Player:
+                    <div class="container">
+                        <div id="playerDiv"></div>
+                        <div id="playerHealthDiv"></div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    
+                    <div class="row mt-5">
+                        <div><img class="mx-auto" src="assets/images/Vs.png" alt="VS" width="200" /></div>
+                    </div>
+                    <div class="row text-center mt-5">
+                            <div class="text-center"><button type="button" id="attackBtn" class="btn btn-danger btn-lg btn-block">ATTACK</button> </div>
+                    </div>
+
+                </div>
+                <div class="col-5">
+                    Enemy:
+                    <div class="container">
+                        <div id="defenderDiv"></div>
+                        <div id="defenderHealthDiv"></div>
+                    </div>
+                </div>
+        </div>
+
+
+
+</div>
+
+
+<div class="container-fluid ">
+        <div id="globalMsg">
+            <p class="shadow">
+                CONGRATULATIONS!
+                <br> You saved the galaxy.
+            </p>
+        </div>
+    </div>
+
+<script src="./assets/js/games.js "></script>
+
+    
+</body>
+</html>
