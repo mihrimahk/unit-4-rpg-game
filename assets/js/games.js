@@ -1,3 +1,5 @@
+
+$(document).ready(function(){
 // Global variables
 var baseAttack = 0; // original attack strength
 var player; // holds the player Object
@@ -177,4 +179,5 @@ $(document).ready(function () {
     $("#globalMsg").hide();
     initCharacters();
     characterCards("#game");
+});
 });
