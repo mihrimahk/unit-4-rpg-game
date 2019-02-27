@@ -1,33 +1,11 @@
-
-$(document).ready(function(){
-
-
-      // Audio Setup
-      // ===========
-
-      // Create an audio element with JavaScript
-     // var audioElement = document.createElement("audio");
-
-      // Set it's source to the location
-      // of our Captain Planet theme song file.
-      //audioElement.setAttribute("src", "Assets/captainplanet24.mp3");
-
-      // Theme Button
-      //$(".theme-button").on("click", function() {
-    //    audioElement.play();
-     // });
-
-      // Pause Button
-     // $(".pause-button").on("click", function() {
-      //  audioElement.pause();
-     // });    
+  
 // Global variables
-var baseAttack = 0; // original attack strength
-var player; // holds the player Object
-var defender; // holds the current defender Object
-var charArray = []; // array that stores the game characters (Objects)
-var playerSelected = false; // flag to mark if we picked a player yet
-var defenderSelected = false; // flag to mark if we picked a defender
+var baseAttack = 0; 
+var player;
+var defender; 
+var charArray = []; 
+var playerSelected = false; 
+var defenderSelected = false; 
 
 
 // Constructor
@@ -48,15 +26,15 @@ Character.prototype.increaseAttack = function () {
 // Performs an attack
 Character.prototype.attack = function (Obj) {
     Obj.healthPoints -= this.attackPower;
-    $("#msg").html("You attacked " +
-        Obj.name + "for " + this.attackPower + " damage points.");
+    $("#msg").html("<b>" + player.name + "</b> attacked <b>" +
+        Obj.name + "</b> for " + this.attackPower + " damage points.");
     this.increaseAttack();
 };
 
 // Performs a counter attack
 Character.prototype.counterAttack = function (Obj) {
     Obj.healthPoints -= this.counterAttackPower;
-    $("#msg").append("<br>" + this.name + " counter attacked you for " + this.counterAttackPower + " damage points.");
+    $("#msg").append(" <b>" + this.name + "</b> counter attacked <b>" + player.name + "</b> for " + this.counterAttackPower + " damage points.");
 };
 
 
@@ -101,9 +79,9 @@ function characterCards(divID) {
         $(divID + " img:last-child").attr("src", charArray[i].pic);
         $(divID + " img:last-child").attr("width", 150);
         $(divID + " img:last-child").addClass("img-thumbnail");
-        $(divID + " div:last-child").append(charArray[i].name + "<br>");
-        $(divID + " div:last-child").append("HP: " + charArray[i].healthPoints);
-        $(divID + " idv:last-child").append();
+        $(divID + " div:last-child").append("<center><b>" + charArray[i].name + "</b></center>");
+        $(divID + " div:last-child").append("<center><b>Power:</b> " + charArray[i].healthPoints + "</center>");
+        $(divID + " div:last-child").append();
 
     }
 }
@@ -113,19 +91,14 @@ function updatePics(fromDivID, toDivID) {
     $(fromDivID).children().remove();
 }
 
-// plays audio file (.mp3)
-function playAudio() {
-    var audio = new Audio("./assets/media/themeSongSmall.mp3");
-    audio.play();
-}
-
 
 $(document).on("click", "img", function () {
     // Stores the defender the user has clicked on in the defender variable and removes it from the charArray
     if (playerSelected && !defenderSelected && (this.id != player.name)) {
         for (var j = 0; j < charArray.length; j++) {
             if (charArray[j].name == (this).id) {
-                defender = charArray[j]; // sets defender
+                defender = charArray[j];
+                 // sets defender
                 charArray.splice(j, 1);
                 defenderSelected = true;
                 $(this).parent('div').remove();
@@ -134,7 +107,8 @@ $(document).on("click", "img", function () {
                 $("#msg").html("Click the button to attack!");
             }
         }
-        $("#defenderDiv").append(this); // appends the selected defender to the div 
+        $("#defenderDiv").append(this);
+         // appends the selected defender to the div 
         $("#defenderDiv").append("<br>" + defender.name);
         $("#defenderHealthDiv").append("HP: " + defender.healthPoints);
     }
@@ -142,7 +116,8 @@ $(document).on("click", "img", function () {
     if (!playerSelected) {
         for (var i = 0; i < charArray.length; i++) {
             if (charArray[i].name == (this).id) {
-                player = charArray[i]; // sets current player
+                player = charArray[i]; 
+                // sets current player
                 setBaseAttack(player);
                 charArray.splice(i, 1);
                 playerSelected = true;
@@ -153,9 +128,10 @@ $(document).on("click", "img", function () {
             }
         }
         //updatePics("#game", "#game");
-        $("#playerDiv").append(this); // appends the selected player to the div
-        $("#playerDiv").append(player.name);
-        $("#playerHealthDiv").append("HP: " + player.healthPoints);
+        $("#playerDiv").append(this); 
+        // appends the selected player to the div
+        $("#playerDiv").append("<b>" + player.name + "</b>");
+        $("#playerHealthDiv").append("<b>Power:</b> " + player.healthPoints);
 
     }
 
@@ -178,7 +154,8 @@ $(document).on("click", "#attackBtn", function () {
                 $("#playerHealthDiv").html("YOU LOST!");
                 $("#msg").html("Try again...");
                 $("#attackBtn").html("Restart Game");
-                $(document).on("click", "#attackBtn", function () { // restarts game
+                $(document).on("click", "#attackBtn", function () { 
+                    // restarts game
                     location.reload();
                 });
             }
@@ -189,7 +166,14 @@ $(document).on("click", "#attackBtn", function () {
             $("#defenderHealthDiv").html("");
             defenderSelected = false;
             if (isWinner()) {
+                $("#gamepage").hide();
+                $("#game").hide();
+                $("#msg").html("YOU WON: <b>" + player.name + "</b>");
                 $("#globalMsg").show();
+                $(document).on("click", "#attackBtn", function () { 
+                    // restarts game
+                    location.reload();
+                });
             }
         }
     }
@@ -200,5 +184,4 @@ $(document).ready(function () {
     $("#globalMsg").hide();
     initCharacters();
     characterCards("#game");
-});
 });

@@ -13,25 +13,14 @@
 
 <div class="container">
 
-<div id="msg" class="fixed-top text-center alert alert-warning">Choose wisely</div>
+<div id="msg" class="fixed-top text-center alert alert-warning"><b>Fortnite RPG Game!</b> Choose your character!</div>
 
-
-<div class="text-center mt-5">
-        <div class="card-deck">
-                <div class="card bg-primary">
-                  <div class="card-body text-center">
-                  <p class="card-text"><h1>Fortnite RPG Game</h1></p>
-                   </div>
-                </div>
-        </div>
-</div>
-
-        <div id="game" class="card-deck mt-3">
+        <div id="game" class="card-deck mt-5">
         </div>
 
-        <div class="row text-center mt-3">
+        <div class="row text-center mt-3" id="gamepage">
                 <div class="col-5">
-                    Player:
+                    <b>YOU:</b>
                     <div class="container">
                         <div id="playerDiv"></div>
                         <div id="playerHealthDiv"></div>
@@ -48,7 +37,7 @@
 
                 </div>
                 <div class="col-5">
-                    Enemy:
+                    <b>ENEMY:</b>
                     <div class="container">
                         <div id="defenderDiv"></div>
                         <div id="defenderHealthDiv"></div>
@@ -56,19 +45,16 @@
                 </div>
         </div>
 
-
+        <div id="globalMsg" class="mt-5 text-center">
+            <p class="shadow">
+                <h1>CONGRATULATIONS!</h1>
+                You won the game. <br><br>
+                <button type="button" id="attackBtn" class="btn btn-danger btn-lg" style="text-align:center ; width:200px;  height: 100px">Restart Game</button>
+            </p>
+        </div>
 
 </div>
 
-
-<div class="container-fluid ">
-        <div id="globalMsg">
-            <p class="shadow">
-                CONGRATULATIONS!
-                <br> You saved the galaxy.
-            </p>
-        </div>
-    </div>
 
 <script src="./assets/js/games.js "></script>
 
